@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class CountNumberOfEvenDigit {
     public static void main(String[] args) {
-        int[] arr = {345,456,348, 123, 0, 900};
+        int[] arr = {345,456,348, 123, 12, 900};
         int evenDigitCount = numberOfEvenDigits(arr);
         System.out.println("The number of even digits in the array, " + Arrays.toString(arr) + " is: " + evenDigitCount);
     }
@@ -20,4 +20,5 @@ public class CountNumberOfEvenDigit {
         }
         return evenDigitCount;
     }
+
 }

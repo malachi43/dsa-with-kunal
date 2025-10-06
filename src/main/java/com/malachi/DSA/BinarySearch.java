@@ -55,7 +55,7 @@ public class BinarySearch {
 
         }
         //at this point, start is the index of the smallest value greater than target i.e the ceil of the number.
-        return start;
+        return start; //start > end (loop condition violated.
 
     }
 
@@ -74,7 +74,7 @@ public class BinarySearch {
 
         }
         //at this point, end is the index of the greatest value smaller than target i.e the floor of the number.
-        return end;
+        return end; // end < start (loop condition violated)
 
     }
 }

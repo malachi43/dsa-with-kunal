@@ -1,11 +1,8 @@
-package com.malachi.DSA;
-
-import java.util.Arrays;
+package com.malachi.DSA.searching;
 
 public class BinarySearch {
     public static void main(String[] args) {
     }
-
     public static int binarySearch(int[] arr, int target){
         int start = 0;
         int end = arr.length - 1;
@@ -38,43 +35,5 @@ public class BinarySearch {
             }
         }
         return -1;
-    }
-
-    public static int ceilOfANumber(int[] arr, int target){
-        int start = 0;
-        int end = arr.length - 1;
-
-        while(start <= end){
-            int mid = start + (end - start) / 2;
-            if(arr[mid] == target) return arr[mid];
-            else if(target > arr[mid]){
-                start = mid + 1;
-            }else{
-                end = mid - 1;
-            }
-
-        }
-        //at this point, start is the index of the smallest value greater than target i.e the ceil of the number.
-        return start; //start > end (loop condition violated.
-
-    }
-
-    public static int floorOfANumber(int[] arr, int target){
-        int start = 0;
-        int end = arr.length - 1;
-
-        while(start <= end){
-            int mid = start + (end - start) / 2;
-            if(arr[mid] == target) return arr[mid];
-            else if(target > arr[mid]){
-                start = mid + 1;
-            }else{
-                end = mid - 1;
-            }
-
-        }
-        //at this point, end is the index of the greatest value smaller than target i.e the floor of the number.
-        return end; // end < start (loop condition violated)
-
     }
 }

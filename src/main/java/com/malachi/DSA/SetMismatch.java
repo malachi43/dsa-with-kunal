@@ -1,8 +1,5 @@
 package com.malachi.DSA;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class SetMismatch {
     public static void main(String[] args) {
     }

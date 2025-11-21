@@ -4,6 +4,7 @@ public class IsPalindrome {
     public static void main(String[] args) {
     }
 
+
     public static boolean isPalindrome(String text){
         if(text == null || text.length() == 1) return true;
 

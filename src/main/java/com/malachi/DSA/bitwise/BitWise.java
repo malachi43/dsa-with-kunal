@@ -2,7 +2,6 @@ package com.malachi.DSA.bitwise;
 
 public class BitWise {
     public static void main(String[] args) {
-
     }
     public static boolean isOdd(long n){
         return (n & 1) == 1;
@@ -88,5 +87,31 @@ public class BitWise {
             ++counter;
         }
         return counter;
+    }
+
+    public static int sumOfNthRowInPascalTriangle(int n){
+        return 1 << (n - 1); // 1 * 2 ^ (n - 1) -> 1 * Math.pow(2,n-1);
+    }
+
+    public static boolean isNPowerOf2(int n){
+        /*
+          If a number has only  1 set bit then it is a power of 2
+          Example
+          1 0 0 0 - is a power of 2 because it has only one set bit.
+          1 0 0 1 0 - is not a power of 2 because it has more one set bit.
+
+                     (n - 1)
+          1 0 0 0 -> 1  1  1  +  1
+
+          if
+          1 0 0 0  -> n
+          0 1 1 1  -> n - 1
+         ---------
+         0 0 0 0 0
+        ----------
+
+        So if n & (n - 1) is equal to zero then n is a power of 2.
+         */
+        return (n & (n - 1)) == 0;
     }
 }

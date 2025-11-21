@@ -2,8 +2,7 @@ package com.malachi.DSA.bitwise;
 
 public class BitWise {
     public static void main(String[] args) {
-        System.out.println(convertDecimalToBinary(7));
-        System.out.println("get magic number: " + getMagicNumber(5));
+
     }
     public static boolean isOdd(long n){
         return (n & 1) == 1;
@@ -66,5 +65,28 @@ public class BitWise {
             n = n >> 1; //this converts n to a binary number and shift it bits to the right.
         }
         return ans;
+    }
+
+    public static int getDigitCountOfNumberInAnyBase(int num, int base){
+        /*
+          The general formula is this ->  log num    +  1
+                                                base
+
+             log a  =   log a
+                  b    --------
+                        log b
+
+         */
+
+        return (int) (Math.log(num) / Math.log(base)) + 1; //We divide by log(base) to get the log of "num" in base, "base"
+    }
+
+    public static int getBitCountOfANumber(int num){
+        int counter = 0;
+        while(num > 0){
+            num = num >> 1; //right shift
+            ++counter;
+        }
+        return counter;
     }
 }

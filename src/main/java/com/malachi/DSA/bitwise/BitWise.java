@@ -134,4 +134,65 @@ public class BitWise {
        }
        return ans;
     }
+
+    public static int findNumberOfSetBits(int num){
+        int noOfSetBit = 0;
+        while(num > 0){
+            int last = num & 1; //get the first binary bit from the right.
+            if(last == 1){
+                ++noOfSetBit;
+            }
+            num = num >> 1; //right shift to move the bits to the right.
+        }
+        return noOfSetBit;
+    }
+
+    //this will give the xor from 0 to a
+    public static int xor(int a){
+
+        /*
+         S/N                 XOR( 0 -> 10 )
+         ----------------------------------
+          0                          0
+          1                          1     a % 4 == 1 -> 1
+          2                          3     a % 4 == 2 -> a + 1
+          3                          0     a % 4 == 3 -> 0
+          4                          4     a % 4 == 0 -> a
+          5                          1
+          6                          7
+          7                          0
+          8                          8
+          9                          1
+          10                         11
+
+
+          WE USE THE ABOVE PATTERN TO COMPUTE THE CONDITION BELOW
+         */
+        if(a % 4 == 0){
+            return a;
+        }
+
+        if(a % 4 == 1){
+            return 1;
+        }
+
+        if(a % 4 == 2){
+            return a + 1 ;
+        }
+
+        return 0;
+    }
+
+    public static int xorInRange(int a, int b){
+        /*
+        THE THOUGHT PROCESS:
+        Step 1: We XOR from 0 -> b (note the "a" lies in the range of 0 -> b)
+        Step 2: Then to get the value in the range of a -> b, so we XOR the result we got from Step 1 with the XOR of 0 -> a - 1
+        Step 3: Recall that when we XOR a number with itself it will cancel out, since we initially XOR from 0 -> b and in Step 2 we XOR from 0 -> a - 1
+                this means that value from 0 -> a - 1 will cancel out so we are left with the XOR from a -> b.
+
+        */
+        return xor(b) ^ xor(a - 1);
+    }
+
 }

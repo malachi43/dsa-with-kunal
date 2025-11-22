@@ -94,6 +94,7 @@ public class BitWise {
     }
 
     public static boolean isNPowerOf2(int n){
+        if (n == 0) return false;
         /*
           If a number has only  1 set bit then it is a power of 2
           Example
@@ -113,5 +114,24 @@ public class BitWise {
         So if n & (n - 1) is equal to zero then n is a power of 2.
          */
         return (n & (n - 1)) == 0;
+    }
+
+    public static int toPower(int base, int power){
+        /*
+         Let say you are given 3^6 (read as 3 raised to power 6),you know that the binary form of 6 is 110,so 3 ^ 6 can be represented as 3 ^ 110 = (3 ^ 4) * (3 ^ 2) * (3 ^ 0)
+         The decimal equivalent of 1 1 0 at each index is = 4 2 0 respectively.
+         We used this pattern because each number can be represented as a binary number.
+         So we only update the ans when bit is a set bit (1) i.e. when bit is 1.
+         */
+       int ans = 1;
+       while (power > 0){
+           int last = power & 1;
+           if(last == 1){
+               ans *= base;
+           }
+           base = base * base; //we do this for every iteration. note the ordering matter, if base = base * base should come before the value of "ans" would be wrong.
+           power = power >> 1;
+       }
+       return ans;
     }
 }

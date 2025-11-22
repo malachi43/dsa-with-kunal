@@ -30,7 +30,7 @@ If you right shift a number you get the integer division of the number divided b
 If you XOR any number with 0 you get back the number
 
 -     A ^ 0 = A
--     0 ^ 0 = 0 (you get back the same number)
+-     0 ^ 0 = 0 (you get back the same number - the decimal equivalent) 
 
 If you XOR any number with 1 you get the complement(opposite) of the number
 

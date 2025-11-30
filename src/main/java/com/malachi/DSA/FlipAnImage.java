@@ -40,6 +40,8 @@ public class FlipAnImage {
     public static void swapAndInvert(int[] arr, int idx1, int idx2){
         /*
          Properties of XOR:
+           In programming XOR operator is denoted with ^
+          - So 1 XOR 1 => 1 ^ 1 = 0
          - When you XOR any number with 1 the number is inverted i.e  1 XOR 1 => 0, 0 XOR 1 => 1, 12 XOR 1 => 13, 13 XOR 1 = 12
          - Also when you XOR any number with 0 you get back the original number 1 XOR 0 => 1, 0 XOR 0 => 12 XOR 0 => 12
 

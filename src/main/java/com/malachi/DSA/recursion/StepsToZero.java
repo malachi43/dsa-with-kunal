@@ -2,7 +2,7 @@ package com.malachi.DSA.recursion;
 
 public class StepsToZero {
     public static void main(String[] args) {
-      int n = 14;
+      int n = 41;
       int steps = stepToZero(n);
         System.out.println("steps to zero: " + steps);
     }

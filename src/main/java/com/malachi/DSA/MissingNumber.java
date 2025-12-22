@@ -14,7 +14,6 @@ public class MissingNumber {
             /*
             We are doing that first check in the "if" condition because an element N == arr.length cannot be put in the correct index
             since it would result in an index out of bound exception, remember the given array will have one missing element.
-            /*
              */
             if(nums[i] < nums.length && nums[i] != nums[correctIndex]){
                swap(nums, i, correctIndex);

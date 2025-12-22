@@ -1,10 +1,6 @@
 package com.malachi.DSA.sorting;
 
-import ch.qos.logback.core.util.InvocationGate;
-
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class CyclicSort {
     public static void main(String[] args) {

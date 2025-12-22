@@ -14,6 +14,7 @@ public class InsertionSort {
         System.out.println("index of " + target + " is: " + index);
     }
 
+    //the array are sorted partially.
     public static void insertionSort(int[] arr){
         int N = arr.length - 1;
         for (int i = 0; i < N; i++){

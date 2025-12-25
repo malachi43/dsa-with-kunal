@@ -13,7 +13,7 @@ E.g Given "abc" -> [ a / bc] or [ "" / bc ]  (So in the example, given "abc", yo
 public class Subsequence {
     public static void main(String[] args) {
         String str = "abc";
-        List<String> result = subsequence("abcd","");
+        List<String> result = subsequence("abc","");
         System.out.println("subset of '" + str + "' is: " + result);
     }
     public static List<String> subsequence(String str, String current) {

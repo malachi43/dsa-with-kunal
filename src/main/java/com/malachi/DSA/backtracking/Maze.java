@@ -12,7 +12,7 @@ public class Maze {
                 {true, true,true},
                 {true, true,true}
         };
-        printMazePath(maze, 0,0, "",0, new int[3][3]);
+        printMazePath(maze, 0,0, "",1, new int[3][3]);
     }
 
     public static int pathCount(int r, int c, int targetRow, int targetCol){
@@ -143,7 +143,7 @@ public class Maze {
     public static void printMazePath(boolean[][] maze, int r, int c, String p, int step, int[][] paths){
         if(r == maze.length - 1 && c == maze[0].length - 1){
             System.out.println(p);
-            paths[r][c] = step + 1;
+            paths[r][c] = step;
             Stream.of(paths).forEach(item -> System.out.println(Arrays.toString(item)));
             return;
         }
@@ -157,22 +157,22 @@ public class Maze {
         maze[r][c] = false;
 
         //number the paths that has been traversed.
-        paths[r][c] = ++step;
+        paths[r][c] = step;
 
         if(r < maze.length - 1){
-            printMazePath(maze, r + 1, c, p + "D",step,paths);
+            printMazePath(maze, r + 1, c, p + "D",step + 1,paths);
         }
 
         if(c < maze[0].length - 1){
-            printMazePath(maze, r, c + 1, p + "R",step,paths);
+            printMazePath(maze, r, c + 1, p + "R",step + 1,paths);
         }
 
         if(c > 0 && maze[r][c - 1]){
-            printMazePath(maze, r, c - 1, p + "L",step,paths);
+            printMazePath(maze, r, c - 1, p + "L",step + 1,paths);
         }
 
         if(r > 0 &&  maze[r - 1][c]){
-            printMazePath(maze, r - 1, c, p + "U", step,paths);
+            printMazePath(maze, r - 1, c, p + "U", step + 1,paths);
         }
 
         /*

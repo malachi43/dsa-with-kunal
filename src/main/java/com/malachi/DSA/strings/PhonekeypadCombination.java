@@ -5,6 +5,7 @@ import java.util.List;
 
 public class PhonekeypadCombination {
     public static void main(String[] args) {
+        System.out.println(keypadCombination("","23"));
     }
 
     public static List<String> keypadCombination(String processed, String unprocessed) {
@@ -16,7 +17,6 @@ public class PhonekeypadCombination {
         int digit = unprocessed.charAt(0) - '0' - 1;
 
         int m  = (digit - 1) * 3;
-        List<String> result = new ArrayList<>();
         int n = digit * 3;
 
         //when 7 is entered on the keypad.
@@ -48,11 +48,14 @@ public class PhonekeypadCombination {
         9 -> wxyz
 
          */
+        //this will contain the answer from the previous recursive calls.
+        List<String> list = new ArrayList<>();
         for(int i = m; i < n; i++){
             char ch = (char) ('a' + i);
+            //holds the answer to the previous recursive calls.
             List<String> ans = keypadCombination(processed + ch, unprocessed.substring(1));
-            result.addAll(ans);
+            list.addAll(ans);
         }
-        return result;
+        return list;
     }
 }

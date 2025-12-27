@@ -143,9 +143,12 @@ public class Maze {
 
     public static void printMazePath(boolean[][] maze, int r, int c, String p, int step, int[][] paths){
         if(r == maze.length - 1 && c == maze[0].length - 1){
+            System.out.println("::::::::::");
             System.out.println(p);
             paths[r][c] = step;
             Stream.of(paths).forEach(item -> System.out.println(Arrays.toString(item)));
+            System.out.println("::::::::::");
+            System.out.println();
             return;
         }
 

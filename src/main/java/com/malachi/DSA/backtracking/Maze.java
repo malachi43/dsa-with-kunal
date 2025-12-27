@@ -12,7 +12,8 @@ public class Maze {
                 {true, true,true},
                 {true, true,true}
         };
-        printMazePath(maze, 0,0, "",1, new int[3][3]);
+        int[][] paths = new int[maze.length][maze[0].length];
+        printMazePath(maze, 0,0, "",1, paths);
     }
 
     public static int pathCount(int r, int c, int targetRow, int targetCol){

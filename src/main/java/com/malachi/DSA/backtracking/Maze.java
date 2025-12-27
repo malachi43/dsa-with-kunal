@@ -3,15 +3,16 @@ package com.malachi.DSA.backtracking;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Maze {
     public static void main(String[] args) {
         boolean[][] maze = {
-                {true, true, true},
-                {true, true, true},
-                {true, true, true}
+                {true, true,true},
+                {true, true,true},
+                {true, true,true}
         };
-        allPaths(maze, 0,0, "");
+        printMazePath(maze, 0,0, "",0, new int[3][3]);
     }
 
     public static int pathCount(int r, int c, int targetRow, int targetCol){
@@ -101,6 +102,7 @@ public class Maze {
     3. While you are moving back, you restore the maze as it was changing "false" back to "true" (emphasizing point 2)
     4. This process is called "BACKTRACKING" (It simply means that if I had not taken this path what will my array look like)
     */
+
     public static void allPaths(boolean[][] maze, int r, int c, String path){
         if(r == maze.length - 1 && c == maze[0].length - 1){
             System.out.println(path);
@@ -137,5 +139,50 @@ public class Maze {
        */
         maze[r][c] = true;
     }
+
+    public static void printMazePath(boolean[][] maze, int r, int c, String p, int step, int[][] paths){
+        if(r == maze.length - 1 && c == maze[0].length - 1){
+            System.out.println(p);
+            paths[r][c] = step + 1;
+            Stream.of(paths).forEach(item -> System.out.println(Arrays.toString(item)));
+            return;
+        }
+
+        //already visited.
+        if(!maze[r][c]){
+           return;
+        }
+
+        //Mark this maze cell as false as we are using this "cell" while traversing the maze.
+        maze[r][c] = false;
+
+        //number the paths that has been traversed.
+        paths[r][c] = ++step;
+
+        if(r < maze.length - 1){
+            printMazePath(maze, r + 1, c, p + "D",step,paths);
+        }
+
+        if(c < maze[0].length - 1){
+            printMazePath(maze, r, c + 1, p + "R",step,paths);
+        }
+
+        if(c > 0 && maze[r][c - 1]){
+            printMazePath(maze, r, c - 1, p + "L",step,paths);
+        }
+
+        if(r > 0 &&  maze[r - 1][c]){
+            printMazePath(maze, r - 1, c, p + "U", step,paths);
+        }
+
+        /*
+        At this point the method/function call will be over and will be returned to the method/function that invoked it.
+        Restore cell to it original default, so other recursive calls can make use of this "cell" as a "p".
+       */
+        maze[r][c] = true;
+        //reset the cell in this path to it default value of zero(0)
+        paths[r][c] = 0;
+    }
+
 
 }

@@ -40,12 +40,12 @@ public class NQueens {
                 }
             }
             System.out.println();
-            System.out.println("--------------------");
+            System.out.println();
         }
     }
 
     public static boolean isSafeToPlaceQueen(boolean[][] board, int row, int col){
-        //check left diagonal
+        //check that no other queen is located at left diagonal of the present column.
         int maxLeft =  Math.min(row,col);
         for(int i = 1; i <= maxLeft; i++){
             int newRow = row - i;
@@ -55,7 +55,7 @@ public class NQueens {
             }
         }
 
-        //check top
+        //check the top to ensure no other queen is present in the current column.
         for(int i = 1; i <= row; i++){
             int newRow = row - i;
             if(board[newRow][col]){
@@ -63,7 +63,7 @@ public class NQueens {
             }
         }
 
-        //check right diagonal
+        //check that no other queen is located at right diagonal of the present column.
         int maxRight =  Math.min(row, board.length - col - 1);
         for(int i = 1; i <= maxRight; i++){
             int newRow = row - i;

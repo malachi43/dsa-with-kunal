@@ -1,7 +1,5 @@
 package com.malachi.DSA.backtracking;
 
-import java.util.Arrays;
-
 public class NQueens {
     public static void main(String[] args) {
         int n = 4;
@@ -56,7 +54,7 @@ public class NQueens {
         }
 
         //check the top to ensure no other queen is present in the current column.
-        for(int i = 1; i <= row; i++){
+        for(int i = 0; i <= row; i++){
             int newRow = row - i;
             if(board[newRow][col]){
                 return false;
